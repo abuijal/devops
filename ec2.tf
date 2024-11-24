@@ -1,3 +1,5 @@
+#EC2creation
+
 variable "ami" {
   type    = string
   default = "ami-081205ca71b3f3635"
