@@ -3,7 +3,7 @@ data "aws_ami" "amazon-linux" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20240927"]
+    values = ["ami-081205ca71b3f3635"]
   }
 
   filter {
@@ -13,7 +13,7 @@ data "aws_ami" "amazon-linux" {
 }
 
 resource "aws_instance" "dev_machine" {
-  ami = "amazon/ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20240927"
+  ami = ami-081205ca71b3f3635
   instance_type = "t3.micro"
   key_name = "keypair123"
 
