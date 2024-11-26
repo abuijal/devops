@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "aburizal"
-    key = "key/key"
+    key = "server_name/statefile"
     region = "ap-southeast-3"
   }
 }  
