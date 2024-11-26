@@ -1,12 +1,24 @@
 ---
-  
-- hosts: all
+- name: Intialize Host
+  hosts: aws_ec2
+  become: yes
+  remote_user: ubuntu
+  gather_facts: true
   vars:
-    ansible_host_key_checking: false
-  become: true
-
+    ansible_ssh_private_key_file: "/home/ubuntu/keypair123.pem"  
+    ansible_ssh_user: "ubuntu"
   tasks:
     - name: Update and upgrade apt packages
       apt:
         update_cache: yes
         upgrade: yes
+    - name: Install Cockpit
+      apt:
+        pkg:
+          - cockpit
+        state: latest
+        update_cache: true
+    - name: Create a password for user ngadimin
+      user:
+        name: ngadimin
+        password: '$6$mzi9QihS5W0D7BUP$i1gk3Gp6JbChUOdGZ/WhOUXrTkyVJVpgU4/jobFXrfjjZw0xpbqiY7zcGcObV0jjb6WlCfJGtfRFiqfXPWFTW1'
