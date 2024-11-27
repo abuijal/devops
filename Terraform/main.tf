@@ -18,7 +18,7 @@ resource "aws_instance" "dev_machine" {
   key_name = "keypair123"
 
   tags = {
-    Environment = "dev"
+    Environment = "prod"
     Name = "${var.name}-server"
   }
 }
